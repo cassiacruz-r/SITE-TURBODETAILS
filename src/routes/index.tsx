@@ -633,7 +633,7 @@ function CTA() {
               <span className="text-gradient-neon">assim hoje mesmo.</span>
             </h2>
             <p className="mt-4 max-w-xl text-muted-foreground">
-              Chame no WhatsApp, conta o que precisa e a gente cuida do resto.
+              Agende seu serviço agora e a gente cuida do resto.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a href={SITE.agendar} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full bg-neon px-6 py-4 text-base font-semibold text-neon-foreground shadow-neon transition-transform hover:scale-[1.02]">
