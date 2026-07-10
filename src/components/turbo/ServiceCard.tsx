@@ -45,7 +45,7 @@ export function ServiceCard({ s, i = 0 }: { s: Service; i?: number }) {
           </div>
         </div>
         <a
-          href={SITE.agendar}
+          href={`${SITE.whatsapp}?text=${encodeURIComponent(`Olá! Tenho interesse no serviço "${s.name}". Pode me passar mais informações?`)}`}
           target="_blank"
           rel="noreferrer"
           className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-neon px-4 py-2 text-sm font-semibold text-neon-foreground transition-transform hover:scale-105"
