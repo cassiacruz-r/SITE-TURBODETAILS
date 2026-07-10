@@ -31,6 +31,47 @@ function useWhatsAppHref() {
   return href;
 }
 
+const WEEKDAY_NAMES = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"];
+
+function parseHourLabel(label: string) {
+  const m = label.trim().match(/(\d{1,2})h(\d{2})?/);
+  if (!m) return null;
+  return parseInt(m[1], 10) * 60 + (m[2] ? parseInt(m[2], 10) : 0);
+}
+
+function getBusinessStatus() {
+  const now = new Date();
+  const todayName = WEEKDAY_NAMES[now.getDay()];
+  const entry = SITE.hours.find(([day]) => day === todayName);
+
+  if (!entry || entry[1] === "Fechado") {
+    return { open: false, label: "Fechado hoje" };
+  }
+
+  const [startLabel, endLabel] = entry[1].split("–").map((s) => s.trim());
+  const start = parseHourLabel(startLabel);
+  const end = parseHourLabel(endLabel);
+  const nowMinutes = now.getHours() * 60 + now.getMinutes();
+
+  if (start !== null && end !== null && nowMinutes >= start && nowMinutes < end) {
+    return { open: true, label: `Aberto agora · fecha às ${endLabel}` };
+  }
+  if (start !== null && nowMinutes < start) {
+    return { open: false, label: `Abre hoje às ${startLabel}` };
+  }
+  return { open: false, label: "Fechado no momento" };
+}
+
+function useBusinessStatus() {
+  const [status, setStatus] = useState(() => ({ open: SITE.status.open, label: SITE.status.label }));
+  useEffect(() => {
+    setStatus(getBusinessStatus());
+    const id = setInterval(() => setStatus(getBusinessStatus()), 60_000);
+    return () => clearInterval(id);
+  }, []);
+  return status;
+}
+
 function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -260,14 +301,15 @@ function Hero() {
 }
 
 function StatusBadge() {
+  const status = useBusinessStatus();
   return (
     <span className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-[11px] font-medium ${
-      SITE.status.open
+      status.open
         ? "border-neon/40 bg-neon/10 text-neon"
         : "border-destructive/40 bg-destructive/10 text-destructive"
     }`}>
-      <span className={`h-1.5 w-1.5 rounded-full ${SITE.status.open ? "bg-neon" : "bg-destructive"} animate-pulse`} />
-      {SITE.status.label}
+      <span className={`h-1.5 w-1.5 rounded-full ${status.open ? "bg-neon" : "bg-destructive"} animate-pulse`} />
+      {status.label}
     </span>
   );
 }
