@@ -9,7 +9,7 @@ import {
   SITE, CAR_SERVICES, MOTO_SERVICES, PLANOS, BEFORE_AFTER,
   REVIEWS, FAQ, DIFERENCIAIS, HERO_IMAGE, INTERIOR_IMAGE,
 } from "@/lib/turbo-data";
-import logoAsset from "@/assets/turbodetails-logo.png.asset.json";
+import logoUrl from "@/assets/turbodetails-logo.png";
 import { Reveal } from "@/components/turbo/Reveal";
 import { ServiceCard } from "@/components/turbo/ServiceCard";
 import { BeforeAfter } from "@/components/turbo/BeforeAfter";
@@ -85,7 +85,7 @@ function Nav() {
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
           <a href="#top" className="flex items-center gap-2 font-display text-lg font-bold tracking-tight">
             <img
-              src={logoAsset.url}
+              src={logoUrl}
               alt="Turbo Details"
               className="h-8 w-8 rounded-lg object-cover shadow-neon"
             />
@@ -127,7 +127,7 @@ function Nav() {
         <div className="flex h-16 items-center justify-between px-4">
           <a href="#top" onClick={() => setOpen(false)} className="flex items-center gap-2 font-display text-lg font-bold tracking-tight">
             <img
-              src={logoAsset.url}
+              src={logoUrl}
               alt="Turbo Details"
               className="h-8 w-8 rounded-lg object-cover shadow-neon"
             />
