@@ -1,3 +1,4 @@
+export const SITE = {
   name: "Turbo Details",
   location: "Jequié, Bahia",
   address: "Rua Medeiros Neto, 42 — Centro",
