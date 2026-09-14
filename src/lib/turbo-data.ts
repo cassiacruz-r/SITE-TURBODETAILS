@@ -20,7 +20,7 @@ export const SITE = {
     ["Quarta-feira", "08h30 – 17h"],
     ["Quinta-feira", "08h30 – 17h"],
     ["Sexta-feira", "08h30 – 17h"],
-    ["Sábado", "08h30 – 15h"],
+    ["Sábado", "mediante agendamento."],
     ["Domingo", "Fechado"],
   ] as [string, string][],
   status: {
