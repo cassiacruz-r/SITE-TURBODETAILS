@@ -61,4 +61,5 @@ https://turbodetails.vercel.app/
 ## Desenvolvido por
 
 Cássia Cruz
+
 Estudante de Análise e Desenvolvimento de Sistemas
