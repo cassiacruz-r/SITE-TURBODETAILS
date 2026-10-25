@@ -172,7 +172,7 @@ export const REVIEWS = [
   { name: "Danilo Santana", when: "há um mês", text: "Excelente serviço!" },
   { name: "Cássia Reiis", when: "8 meses atrás", text: "Melhor da cidade!! 👏🏻👏🏻 Atendimento perfeito!!" },
   { name: "Thiago Antônio", when: "há um mês", text: "Aí de excelência!" },
-  { name: "Dj Renatinho Jequié Ba", when: "há 3 dias", text: "Qualidade imbatível. Parabéns 👏" },
+  { name: "Dj Renatinho Jequié Ba", when: "há mês", text: "Qualidade imbatível. Parabéns 👏" },
 ];
 
 export const FAQ = [
